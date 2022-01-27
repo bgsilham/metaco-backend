@@ -49,7 +49,7 @@ module.exports = {
     })
   },
   getResultByTournament: (param) => {
-    const sql = `SELECT * FROM tournament_results WHERE tournament_id = ? AND position = ? ORDER BY position`
+    const sql = `SELECT tournament_results.id, tournament_results.team_id, teams.name as team_name, tournament_results.position, tournament_results.tournament_id FROM tournament_results INNER JOIN teams ON tournament_results.team_id=teams.id WHERE tournament_results.tournament_id = ? AND tournament_results.position = ?`
     return new Promise((resolve, reject) => {
       db.all(sql, param, (error, result) => {
         if (error) {
