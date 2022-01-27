@@ -93,6 +93,15 @@ module.exports = {
       response.status(400).send(data)
     }
   },
+  getTeam: async (request, response) => {
+    const fetchTeam = await tournamentModel.getTeam()
+    const data = {
+      success: true,
+      msg: 'Success',
+      data: fetchTeam,
+    }
+    response.status(200).send(data)
+  },
   getTournamentResult: async (request, response) => {
     const fetchTournament = await tournamentModel.getTournamentResult()
     const data = {
@@ -103,7 +112,7 @@ module.exports = {
     response.status(200).send(data)
   },
   getResultByTournament: async (request, response) => {
-    const fetchTournament = await tournamentModel.getResultByTournament([request.params.id])
+    const fetchTournament = await tournamentModel.getResultByTournament([request.params.id, request.query.position])
     const data = {
       success: true,
       msg: 'Success',

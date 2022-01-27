@@ -25,6 +25,18 @@ module.exports = {
       })
     })
   },
+  getTeam: () => {
+    const sql = `SELECT * FROM teams`
+    const params = []
+    return new Promise((resolve, reject) => {
+      db.all(sql, params, (error, result) => {
+        if (error) {
+          reject(Error(error))
+        }
+        resolve(result)
+      })
+    })
+  },
   getTournamentById: (param) => {
     const sql = `SELECT * FROM tournament_results WHERE id = ?`
     return new Promise((resolve, reject) => {
@@ -37,7 +49,7 @@ module.exports = {
     })
   },
   getResultByTournament: (param) => {
-    const sql = `SELECT * FROM tournament_results WHERE tournament_id = ? ORDER BY position`
+    const sql = `SELECT * FROM tournament_results WHERE tournament_id = ? AND position = ? ORDER BY position`
     return new Promise((resolve, reject) => {
       db.all(sql, param, (error, result) => {
         if (error) {
