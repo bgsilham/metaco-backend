@@ -1,7 +1,7 @@
 # METACO BACKEND
 
 ## API Link
-`http://54.144.221.209:8100/`
+`https://metaco-ilham.herokuapp.com/`
 
 ## Stacks
 - NodeJS
@@ -10,7 +10,6 @@
 
 ## Dependencies
 - [ExpressJs](#ExpressJs) - The server for handling and routing HTTP requests
-- [dotenv ](#dotenv) - A zero-dependency module that loads environment variables from a ```.env``` file into ```process.env```
 - [sqlite3](#sqlite) - NodeJs driver for SQL Lite
 - [body-parser ](#body-parser) - Node.js body parsing middlewareapplication when file changes in the directory are detected.
 - [CORS](#CORS) - A node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
